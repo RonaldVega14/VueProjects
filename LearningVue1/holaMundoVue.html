@@ -9,11 +9,15 @@
     <body>
 <!-- Todos los componentes en vue deben de ir dentro de un container -->
         <div id="app">
+            <h1>{{titulo}}</h1>
 
-                <h1>Hola Mundo 1</h1>
-
+<!-- Imprimiendo el array utilizando un for-->
+            <ul>
+                <li v-for="tema of temas">{{tema.unidad}}, fecha: {{tema.fecha}}
+                    <span v-if="tema.estado == true"> - Observado</span>
+                </li>
+            </ul>
         </div>
-
 
 
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
