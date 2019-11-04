@@ -10,6 +10,8 @@
 <!-- Todos los componentes en vue deben de ir dentro de un container -->
         <div id="app">
             <h1>{{titulo}}</h1>
+<!-- v-model permite hacer una conexion directa entre el html y el js -->
+            <h3>Ingrese un nuevo Tema: </h3><input type="text" v-model = "nuevoTema"><button v-on:click="agregarTema">Agregar</button>
 
 <!-- Imprimiendo el array utilizando un for-->
             <ul>
