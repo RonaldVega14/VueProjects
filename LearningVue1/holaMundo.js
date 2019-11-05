@@ -9,10 +9,27 @@ const app = new Vue({
             {unidad: "3 Arreglos en Vue", fecha: "12/12/19", estado:false}
         ],
         nuevoTema: '',
+        nuevaFecha: '',
+        TemaEstudiado: '',
+        totalTemas: 0
     },
     methods:{
         agregarTema(){
-            console.log('Click!');
+            this.temas.push({
+                unidad: this.nuevoTema, fecha: this.nuevaFecha, estado: this.TemaEstudiado
+            });
+            this.nuevoTema = '';
+            this.nuevaFecha = '';
+            this.TemaEstudiado = '';
+        },
+    },
+    computed:{
+        sumarTemas(){
+            this.totalTemas = 0;
+            for (tema of this.temas) {
+                this.totalTemas++;              
+            }
+            return this.totalTemas;
         }
     }
 })

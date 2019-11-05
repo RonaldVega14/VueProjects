@@ -11,14 +11,19 @@
         <div id="app">
             <h1>{{titulo}}</h1>
 <!-- v-model permite hacer una conexion directa entre el html y el js -->
-            <h3>Ingrese un nuevo Tema: </h3><input type="text" v-model = "nuevoTema"><button v-on:click="agregarTema">Agregar</button>
-
+            <h5>Ingrese un nuevo Tema: </h5><input type="text" v-model = "nuevoTema">
+            <h5>Ingrese una nueva Fecha: </h5><input type="text" v-model = "nuevaFecha">
+            <h5>El tema ya ha sido observado?</h5><input type="checkbox" checked="true" v-model= "TemaEstudiado" @keyup.enter="agregarTema"/>
+            <br>
+            <button @click="agregarTema">Agregar Tema</button>
 <!-- Imprimiendo el array utilizando un for-->
             <ul>
                 <li v-for="tema of temas">{{tema.unidad}}, fecha: {{tema.fecha}}
-                    <span v-if="tema.estado == true"> - Observado</span>
+                    <input type = "checkbox" checked= "true" v-model.boolean= "tema.estado">
+                    <span v-if="tema.estado === true"> - Observado</span>
                 </li>
             </ul>
+            <h3>Total de temas: {{sumarTemas}}</h3>
         </div>
 
 
